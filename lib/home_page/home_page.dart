@@ -21,8 +21,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("User List",style: TextStyle(color: Colors.white),),
-        leading:const Icon(Icons.arrow_back,color: Colors.white,),
+        title: const Text(
+          "User List",
+          style: TextStyle(color: Colors.white),
+        ),
+        leading: const Icon(
+          Icons.arrow_back,
+          color: Colors.white,
+        ),
         backgroundColor: theme.colorScheme.primary,
       ),
       body: Column(
@@ -31,8 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
           TextField(
             controller: searchController,
             decoration: const InputDecoration(
-                label: Text("Search"), suffix: Icon(Icons.search),
-                ),
+              label: Text("Search"),
+              suffix: Icon(Icons.search),
+            ),
           )
         ],
       ),
