@@ -1,4 +1,3 @@
-import 'package:bloc_sample/home_page/home_page.dart';
 import 'package:bloc_sample/navigation_route.dart';
 import 'package:flutter/material.dart';
 

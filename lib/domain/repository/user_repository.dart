@@ -10,7 +10,7 @@ class UserRepository {
   }
 
   Future<Response> getUserList() async {
-    return apiClient.get(Constants.userListApi);
+    return await apiClient.get(Constants.userListApi);
   }
   
 }

@@ -13,12 +13,9 @@ class DioApiClient {
 
   static Dio createDio() {
     var dio = Dio(BaseOptions(
-      baseUrl: "https://reqres.in/", //For example : https:www.example.com
+      baseUrl: "https://reqres.in", //For example : https:www.example.com
       connectTimeout: const Duration(minutes: 3),
       //30 secs
-      receiveTimeout: const Duration(minutes: 3),
-      //30 secs
-      sendTimeout: const Duration(minutes: 3),
       //20secs
     ));
     dio.interceptors.addAll({ErrorInterceptor(dio)});
@@ -55,6 +52,7 @@ class DioApiClient {
     void Function(int, int)? onReceiveProgress,
     bool addRequestInterceptor = true,
   }) async {
+    
     print("GETTING API FROM : ${this.dio.options.baseUrl + path}");
 
     if (addRequestInterceptor) {
