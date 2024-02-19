@@ -1,5 +1,9 @@
+class Constants {
+  static const userListApi = "/api/users";
+  static const userDetailsApi = "/api/users/";
 
-class Constants{
- static const userListApi="/api/users";
-
+  
+}
+class NavigationKey{
+  static const id = "id";
 }

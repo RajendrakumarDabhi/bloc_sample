@@ -12,5 +12,8 @@ class UserRepository {
   Future<Response> getUserList() async {
     return await apiClient.get(Constants.userListApi);
   }
-  
+
+  Future<Response> getUserDetailsById(String id) async {
+    return await apiClient.get(Constants.userDetailsApi + id.toString());
+  }
 }

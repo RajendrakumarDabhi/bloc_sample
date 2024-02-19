@@ -10,19 +10,20 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
   var userRepository = UserRepository(DioApiClient());
 
   UserListBloc() : super(Initial()) {
-    on<UserListEvent>((event, emit) async {
-      if (event is UserListInit) {
-        emit(Loading());
-        try {
-          var response = await userRepository.getUserList();
-          var list =
-              UserListResponse.fromJson(response.data).data ?? List.empty();
-          emit(ApiSuccess(list));
-        } catch (exception) {
-          emit(ApiError(exception.toString()));
-        }
-        
-      } else {}
-    });
+    on<UserListEvent>((event, emit) async {});
+    on<UserListInit>(_getUserList);
+  }
+
+  Future<void> _getUserList(
+      UserListInit event, Emitter<UserListState> emit) async {
+    emit(Loading());
+    try {
+      var response = await userRepository.getUserList();
+      var list = UserListResponse.fromJson(response.data).data ?? List.empty();
+      Future.delayed(const Duration(seconds: 15));
+      emit(ApiSuccess(list));
+    } catch (exception) {
+      emit(ApiError(exception.toString()));
+    }
   }
 }
